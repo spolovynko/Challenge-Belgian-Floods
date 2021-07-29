@@ -13,11 +13,11 @@
 <div class="user_list_shipping">
     
         {%for ship in list_shipping%}
-        <li>
-            <div>
-                
-            </div>
-        </li>
+        
+        <div>
+            {{ship.sending_date}} {{ship.state}}
+        </div>
+        
         {% endfor %}
     
 </div>

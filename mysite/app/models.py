@@ -24,7 +24,7 @@ class Objet(models.Model):
 class Shipping(models.Model):
     utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)
     sending_date =  models.DateTimeField(auto_now_add=True)
-    state = models.CharField(default=0, max_length=200)
+    state = models.CharField(default="pending", max_length=200)
 
     def __str__(self) -> str:
         return str(self.utilisateur) + str(self.id)
