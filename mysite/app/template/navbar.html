@@ -2,19 +2,19 @@
     {% url 'index' as index_url %}
     <span>{% if request.path == index_url %}Home{% else %}<a  href= "{{index_url}}">Home</a>{% endif %}</span>
     {% url 'account' as account_url %}
-    <span>{% if request.path == index_url %}account{% else %}<a  href= "{{account_url}}">account</a>{% endif %}</span>
+    <span>{% if request.path == account_url %}account{% else %}<a  href= "{{account_url}}">account</a>{% endif %}</span>
     {% url 'about' as about_url %}
-    <span>{% if request.path == index_url %}about{% else %}<a  href= "{{about_url}}">about</a>{% endif %}</span>
+    <span>{% if request.path == about_url %}about{% else %}<a  href= "{{about_url}}">about</a>{% endif %}</span>
     {% url 'contact' as contact_url %}
-    <span>{% if request.path == index_url %}contact{% else %}<a  href= "{{contact_url}}">contact</a>{% endif %}</span>
+    <span>{% if request.path == contact_url %}contact{% else %}<a  href= "{{contact_url}}">contact</a>{% endif %}</span>
     <span style="float:right">
         {% if user.is_authenticated %}
             {% url 'profile' as profile_url %}
 
-            <span> Hi {% if request.path == profile_url %} {{user.username}}{% else %}<a href="{{profile_url}}</a>{% endif %} </span>
-            <span><a heref="{%url 'logout' %}"> Logout </a></span>
+            <span> Hi {% if request.path == profile_url %} {{user.username}}{% else %}<a href="{{profile_url}}">{{user.username}}</a>{% endif %} </span>
+            <span><a href="{% url 'logout' %}"> Logout </a></span>
         {% else %}
-            <span><a heref="{%url 'login' %}"> Login </a></span>
+            <span><a href="{% url 'login' %}"> Login </a></span>
         {% endif %}
     </span>
 </nav>
