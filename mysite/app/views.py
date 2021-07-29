@@ -59,10 +59,10 @@ def need_help_unique(request):
      "type_food": Constantes.type_food, "type_housing": Constantes.type_housing, "available_dict": available}) 
 
 def give_help(request):
-    pass
+    return render(request, 'give_help.html') 
 
 def photo(request):
-    pass
+    return render(request, 'photo.html')
 
 def shipping_list(request):
     pass

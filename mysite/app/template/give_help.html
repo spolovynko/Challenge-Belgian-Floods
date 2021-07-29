@@ -1,0 +1,14 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="selection">
+            {% url 'photo' as picture %}
+                <a  href= "{{picture}}">Add objects</a>
+        </div>
+        <div class="selection">
+            {% url 'shipping_list' as shipping_list %}
+                <a  href= "{{shipping_list}}">Prepare a shipping</a>
+        </div>
+    </body>
+</html>
