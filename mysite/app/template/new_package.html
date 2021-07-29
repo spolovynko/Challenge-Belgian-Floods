@@ -1,0 +1,15 @@
+<form action="{% url 'need_help'%}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>Pick what you need</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for key, value in available_dict.items %}
+            <label for="{{ key }}">{{ key }}</label>
+            <input type="number" id="{{ key }}" name="{{key}}" value=0 min=0 max={{value}}>
+            <span>available: {{value}}</span>
+            <br>
+        {% endfor %}
+        
+    </fieldset>
+    <input type="submit" value="Submit">
+</form>

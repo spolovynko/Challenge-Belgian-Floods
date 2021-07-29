@@ -1,0 +1,23 @@
+<h1>
+    Bonjour {{utilisateur.name}}
+</h1>
+
+<div class="user_infos">
+    <h2>infos</h2>
+    <ul>
+        <li>adress: {{utilisateur.adresse}}</li>
+        <li>email: {{utilisateur.email}}</li>
+    </ul>
+</div>
+
+<div class="user_list_shipping">
+    
+        {%for ship in list_shipping%}
+        <li>
+            <div>
+                
+            </div>
+        </li>
+        {% endfor %}
+    
+</div>
