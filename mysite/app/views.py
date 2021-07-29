@@ -47,7 +47,7 @@ def need_help(request):
     list_shipping= Shipping.objects.filter(utilisateur=user)
     return render(request, 'need_help.html', {"utilisateur": user, "list_shipping": list_shipping}) 
 
-def need_help_unique(request, shipping_id):
+def need_help_unique(request):
     list_objects= Objet.objects.filter(available=True)
     available = dict()
     for objet in Constantes.type_object.keys():

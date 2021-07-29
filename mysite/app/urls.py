@@ -15,7 +15,7 @@ urlpatterns = [
     
     path('NeedHelp/', views.need_help, name='need_help'),
 
-    path('NeedHelp/<int:shipping_id>/', views.need_help_unique, name='need_help_unique'),
+    path('NeedHelp_form/', views.need_help_unique, name='need_help_unique'),
 
     path('GiveHelp/', views.give_help, name='give_help'),
 
