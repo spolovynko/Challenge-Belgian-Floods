@@ -1,1 +1,25 @@
-<a>
+<h1>
+    Bonjour {{utilisateur.name}}
+</h1>
+
+<div class="user_infos">
+    <h2>infos</h2>
+    <ul>
+        <li>adress: {{utilisateur.adresse}}</li>
+        <li>email: {{utilisateur.email}}</li>
+    </ul>
+</div>
+
+<div class="user_list_shipping">
+    <h2>orders</h2>
+        {%for ship in list_shipping%}
+        
+        <div>
+            {{ship.sending_date}} {{ship.state}}
+        </div>
+        
+        {% endfor %}
+        {% url 'need_help_unique' as form %}
+        <a  href= "{{form}}">add new order</a>
+    
+</div>

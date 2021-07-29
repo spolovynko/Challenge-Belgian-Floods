@@ -23,12 +23,19 @@ class Objet(models.Model):
 
 class Shipping(models.Model):
     utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)
-    sending_date =  models.DateTimeField()
-    state = models.CharField(max_length=200)
+    sending_date =  models.DateTimeField(auto_now_add=True)
+    state = models.CharField(default="pending", max_length=200)
+
+    def __str__(self) -> str:
+        return str(self.utilisateur) + str(self.id)
 
 class Objet_Shipping(models.Model):
     shipping = models.ForeignKey(Shipping, on_delete=models.CASCADE)
     objet = models.ForeignKey(Objet, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+
+    def __str__(self) -> str:
+        return str(self.shipping)
 
 
 
