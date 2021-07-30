@@ -1,1 +1,6 @@
-<input type="file" accept="image/*" capture="camera">
+<form action="{% url 'result_photo'%}" method="post">
+    {% csrf_token %}
+    
+    <input type="file" accept="image/*" capture="camera" name="photo">
+    <input type="submit" value="send">
+</form>

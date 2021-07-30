@@ -15,6 +15,7 @@ urlpatterns = [
     path('NeedHelp_form/', views.need_help_unique, name='need_help_unique'),
     path('GiveHelp/', views.give_help, name='give_help'),
     path('Photo/', views.photo, name='photo'),
+    path('Result_photo/', views.result_photo, name='result_photo'),
     path('shippingList/', views.shipping_list, name='shipping_list'),
     path('shippingList/<int:shipping_id>/', views.shipping_unique, name='shipping_unique'),
     path('accounts/profile', views.ProfileView.as_view(), name="profile"),

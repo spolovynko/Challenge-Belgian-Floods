@@ -7,6 +7,9 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+from tensorflow import keras
+import tensorflow as tf
+
 def index(request):
     """ or return render(request, 'index.html') """
     print(request.user)
@@ -59,6 +62,24 @@ def give_help(request):
     return render(request, 'give_help.html') 
 
 def photo(request):
+    
+    return render(request, 'photo.html')
+
+def result_photo(request):
+    print("debut result view")
+    image = request.POST["photo"]
+    '''
+    image_decoded = tf.image.decode_jpeg(img, channels=3)
+    image = tf.cast(image_decoded, tf.float32)'''
+    image_resized = tf.image.resize_images(image, [96, 96])
+    print("apres resize")
+    model = keras.models.load_model('Model MobileNet') 
+    print("avant prediction")
+    
+    prediction = model.predict(image_resized)
+
+    print("prediction", prediction)
+
     return render(request, 'photo.html')
 
 def shipping_list(request):
