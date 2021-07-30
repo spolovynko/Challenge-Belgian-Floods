@@ -16,9 +16,6 @@ def index(request):
 def inscription(request):
     pass
 
-def shipping(request):
-    return HttpResponse("Shipping page")
-
 def need_help(request):
     user = Utilisateur.objects.first()
 
@@ -65,10 +62,14 @@ def photo(request):
     return render(request, 'photo.html')
 
 def shipping_list(request):
-    pass
+    liste_shipping = Shipping.objects.filter(state='pending').order_by('sending_date')
+    print("size shipping_list:", len(liste_shipping))
+    return render(request, 'shipping_list.html', {"liste_shipping": liste_shipping})
 
-def shipping_unique(request):
-    pass
+def shipping_unique(request, shipping_id):
+    package = Shipping.objects.get(pk=shipping_id)
+    print(package)
+    return render(request, 'shipping_unique.html')
 
 def about(request):
     return render(request, 'about.html') 
