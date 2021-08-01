@@ -26,6 +26,7 @@ import numpy as np
 from keras.applications import vgg16
 import datetime
 import traceback
+import time
 
 def index(request):
     """ or return render(request, 'index.html') """
@@ -85,10 +86,10 @@ def photo(request):
         file_name = "pic.jpg"
         file_name_2 = default_storage.save(file_name, f)
         file_url = default_storage.url(file_name_2)
-        original = load_img("media/pic.jpg", target_size=(224, 224))
+        file_url = "C:\\Users\\jerem\\OneDrive\\Bureau\\NoMoreNaked\\Challenge-Belgian-Floods\\mysite\\media\\"+file_name_2
+        original = load_img(file_url, target_size=(224, 224))
         numpy_image = img_to_array(original)
         
-
         image_batch = np.expand_dims(numpy_image, axis=0)
         # prepare the image for the VGG model
         processed_image = vgg16.preprocess_input(image_batch.copy())
@@ -129,9 +130,9 @@ def result_photo(request):
         label = decode_predictions(predictions)
         label = list(label)[0]
         response['name'] = str(label)
-        return render(request,'homepage.html',response)
+        return render(request,'photo.html',response)
     else:
-        return render(request,'homepage.html')
+        return render(request,'photo.html')
     '''print("debut result view")
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
