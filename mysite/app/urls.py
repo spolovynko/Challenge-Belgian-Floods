@@ -6,6 +6,7 @@ from . import views
 
 
 urlpatterns = [
+<<<<<<< HEAD
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
     path("about", views.about, name="about"),
     path("contact", views.contact, name="contact"),
@@ -20,6 +21,22 @@ urlpatterns = [
         "shippingList/<int:shipping_id>/", views.shipping_unique, name="shipping_unique"
     ),
     path("accounts/profile", views.ProfileView.as_view(), name="profile"),
+=======
+    path('', TemplateView.as_view(template_name= "index.html"), name='index'),
+    path('about', views.about, name='about'),
+    path('contact', views.contact, name='contact'),
+    path('account', views.account, name='account'),
+    path('Inscription/', views.inscription, name='inscription'),
+    path('NeedHelp/', views.need_help, name='need_help'),
+    path('NeedHelp_form/', views.need_help_unique, name='need_help_unique'),
+    path('GiveHelp/', views.give_help, name='give_help'),
+    path('Photo/', views.photo, name='photo'),
+    path('Result_photo/', views.result_photo, name='result_photo'),
+    path('shippingList/', views.shipping_list, name='shipping_list'),
+    path('shippingList/<int:shipping_id>/', views.shipping_unique, name='shipping_unique'),
+    path('accounts/profile', views.ProfileView.as_view(), name="profile"),
+
+>>>>>>> 8bb59a7cf96ba01fd7f20b30b81023cb89505867
     # Djando Auth
     path(
         "accounts/login",
