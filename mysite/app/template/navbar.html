@@ -1,20 +1,100 @@
-<nav>
-    {% url 'index' as index_url %}
-    <span>{% if request.path == index_url %}Home{% else %}<a  href= "{{index_url}}">Home</a>{% endif %}</span>
-    {% url 'account' as account_url %}
-    <span>{% if request.path == account_url %}account{% else %}<a  href= "{{account_url}}">account</a>{% endif %}</span>
-    {% url 'about' as about_url %}
-    <span>{% if request.path == about_url %}about{% else %}<a  href= "{{about_url}}">about</a>{% endif %}</span>
-    {% url 'contact' as contact_url %}
-    <span>{% if request.path == contact_url %}contact{% else %}<a  href= "{{contact_url}}">contact</a>{% endif %}</span>
+<!-- <nav>
+    
+    
+    
+    
     <span style="float:right">
+        
+    </span>
+</nav> -->
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        {% url 'index' as index_url %}
+    <span>{% if request.path == index_url %}Home{% else %}<a  class="navbar-brand mt-2 mt-lg-0" href= "{{index_url}}">Home</a>{% endif %}</span>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            {% url 'account' as account_url %}
+    <span>{% if request.path == account_url %}Account{% else %}<a  href= "{{account_url}}" class="nav-link">Account</a>{% endif %}</span>
+          </li>
+          <li class="nav-item">
+            {% url 'about' as about_url %}
+    <span>{% if request.path == about_url %}About{% else %}<a  href= "{{about_url}}" class="nav-link">About</a>{% endif %}</span>
+          </li>
+          <li class="nav-item">
+            {% url 'contact' as contact_url %}
+    <span>{% if request.path == contact_url %}Contact{% else %}<a  href= "{{contact_url}}" class="nav-link">Contact</a>{% endif %}</span>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      
+        <!-- Icon -->
+        
+  
+        <!-- Notifications -->
+        
+       
+  
+        <!-- Avatar -->
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+        <i class="far fa-user"></i>
+          <!-- <img
+            src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+            class="rounded-circle"
+            height="25"
+            alt=""
+            loading="lazy"
+          /> -->
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
         {% if user.is_authenticated %}
             {% url 'profile' as profile_url %}
 
-            <span> Hi {% if request.path == profile_url %} {{user.username}}{% else %}<a href="{{profile_url}}">{{user.username}}</a>{% endif %} </span>
-            <span><a href="{% url 'logout' %}"> Logout </a></span>
+            <li> Hi {% if request.path == profile_url %} {{user.username}}{% else %}<a href="{{profile_url}}" class="dropdown-item">{{user.username}}</a>{% endif %} </li>
+            <li><a href="{% url 'logout' %}" class="dropdown-item"> Logout </a></li>
         {% else %}
-            <span><a href="{% url 'login' %}"> Login </a></span>
+            <li><a href="{% url 'login' %}" class="dropdown-item"> Login </a></li>
         {% endif %}
-    </span>
-</nav>
+          
+        </ul>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
