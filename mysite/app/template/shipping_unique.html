@@ -1,1 +1,11 @@
-shipping unique
+<h2>{{user}}</h2>
+<h3>{{user_adresse}}</h3>
+<ul>
+{%for key, val in items.items%}
+    <li>{{key}}: {{val}}</li>
+{%endfor%}
+</ul>
+
+<button>Done</button>
+    
+<button>Cancel</button>
