@@ -1,14 +1,33 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <div class="selection">
-            {% url 'photo' as picture %}
-                <a  href= "{{picture}}">Add objects</a>
+{% extends "base.html" %}
+
+{% block content%}
+<div class="row d-flex justify-content-center">
+    <div class="'card w-50 border shadow-4 mb-3 mt-4 '">
+        <div class="card-header text-center">
+            <h1>
+                <div class="col">
+                    <h1>
+                        What do you want to do ? 
+                    </h1>
+                </div>
+            </h1>
+
         </div>
-        <div class="selection">
-            {% url 'shipping_list' as shipping_list %}
-                <a  href= "{{shipping_list}}">Prepare a shipping</a>
+        <div class="card-body text-center">
+            <div class="selection">
+                {% url 'photo' as picture %}
+                    <a  href= "{{picture}}">Add objects</a>
+            </div>
+            <div class="selection">
+                {% url 'shipping_list' as shipping_list %}
+                    <a  href= "{{shipping_list}}">Prepare a shipping</a>
+            </div>
         </div>
-    </body>
-</html>
+        
+    </div>
+</div>
+    
+        
+
+
+{% endblock%}
