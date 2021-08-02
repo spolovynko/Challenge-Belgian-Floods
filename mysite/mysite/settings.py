@@ -155,7 +155,7 @@ GRAPH1 = tf.compat.v1.get_default_graph()
 
 set_session(SESS)
 # Load the VGG model
-VGG_MODEL = vgg16.VGG16(weights="imagenet")
+#VGG_MODEL = vgg16.VGG16(weights="imagenet")
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

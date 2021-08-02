@@ -80,7 +80,9 @@ def give_help(request):
     return render(request, 'give_help.html') 
 
 def photo(request):
+    
     if  request.method == "POST":
+        
         f=request.FILES['sentFile'] # here you get the files needed
         response = {}
         file_name = "pic.jpg"
@@ -105,6 +107,7 @@ def photo(request):
         response['name'] = str(label)
         return render(request,'photo.html',response)
     else:
+        
         return render(request,'photo.html')
 
 def result_photo(request):
@@ -167,8 +170,19 @@ def shipping_list(request):
 
 def shipping_unique(request, shipping_id):
     package = Shipping.objects.get(pk=shipping_id)
-    print(package)
-    return render(request, 'shipping_unique.html')
+    items = Objet_Shipping.objects.filter(shipping = package)
+    item_str = dict()
+    for item in items:
+        cat = str(item.objet)[:3]
+        print("cat", cat, type(cat))
+        for key, value in Constantes.type_object.items():
+            print("value", value, type(value))
+            if str(value) == cat:
+                item_str[key] = item.quantity
+    print(item_str)
+    user = package.utilisateur
+
+    return render(request, 'shipping_unique.html', {"user": user, "user_adresse": user.adresse, "items":item_str})
 
 def about(request):
     return render(request, 'about.html') 
