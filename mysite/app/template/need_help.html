@@ -1,29 +1,43 @@
 {%extends 'base.html'%}
 {% block content%}
-<h1>
-    Bonjour {{utilisateur.name}}
-</h1>
-
-<div class="user_infos">
-    <h2>infos</h2>
-    <ul>
-        <li>adress: {{utilisateur.adresse}}</li>
-        <li>email: {{utilisateur.email}}</li>
-    </ul>
-</div>
-
-<div class="user_list_shipping">
-    <h2>orders</h2>
-        {%for ship in list_shipping%}
-        
-        <div>
-            {{ship.sending_date}} {{ship.state}}
+<div class="row d-flex justify-content-center mt-4">
+    <div class="'card w-50 border shadow-4 rounded mb-3 mt-4 ">
+        <div class="card-header">
+            <div class="col-md-2">
+                <h1>
+                    Hello {{utilisateur.name}}
+                </h1>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="user_infos">
+                <h2>Infos</h2>
+                <ul>
+                    <li>adress: {{utilisateur.adresse}}</li>
+                    <li>email: {{utilisateur.email}}</li>
+                </ul>
+            </div>
         </div>
         
-        {% endfor %}
-        {% url 'need_help_unique' as form %}
-        <a  href= "{{form}}">add new order</a>
+        
+        <div class="user_list_shipping">
+            <h2>Orders</h2>
+                {%for ship in list_shipping%}
+                
+                <div>
+                    {{ship.sending_date}} {{ship.state}}
+                </div>
+                
+                {% endfor %}
+                {% url 'need_help_unique' as form %}
+                <a  href= "{{form}}">add new order</a>
+            
+        </div>
+        </div>   
     
 </div>
+
+
+    
 
 {% endblock %}
